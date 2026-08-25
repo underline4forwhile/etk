@@ -73,6 +73,18 @@
   .roll-empty .star { color: var(--gold); font-size: 12px; letter-spacing: .4em; }
   .roll-empty p { margin-top: 12px; font-size: 14px; color: var(--dim); line-height: 1.9; }
   .roll-empty p strong { color: var(--accent); }
+  /* QQ 群加入提示（国家成员卡片外） */
+  .join-line {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--dim);
+  }
+  .join-line strong { color: var(--gold); font-weight: 700; }
+  /* 国家成员紧凑卡：无英文称号、更小 */
+  .roll-card.member { padding: 12px 20px; }
+  .roll-card.member .name { font-size: 17px; letter-spacing: .06em; }
+  .roll-card.member .note { margin-top: 6px; padding-top: 6px; font-size: 12px; }
 
   @media (max-width: 860px) {
     .roll-grid { grid-template-columns: 1fr; }
@@ -91,7 +103,7 @@
         <small>王 国 官 方 网 站</small>
       </span>
     </a>
-    <span class="corner-mark">✦ ✦ ✦</span>
+    <a class="join-btn" href="roster.html#citizens">加入我们</a>
   </nav>
 
   <div class="layout">
@@ -162,18 +174,21 @@
             <div class="roll-body">
               <div class="roll-grid">
                 <div class="roll-card">
-                  <div class="role">皇 家 建 筑 师</div>
-                  <div class="name">az_hqyet_08_13</div>
+                  <div class="role">首 席 建 筑 师</div>
+                  <div class="name">NIUBJ</div>
+                  <div class="id">CHIEF ARCHITECT</div>
                   <div class="note">描述暂缺。</div>
                 </div>
                 <div class="roll-card">
                   <div class="role">皇 家 建 筑 师</div>
-                  <div class="name">NIUBJ</div>
-                  <div class="note">描述暂缺。</div>
+                  <div class="name">az_hqyet_08_13</div>
+                  <div class="id">ROYAL ARCHITECT</div>
+                  <div class="note">simmc第一打灰</div>
                 </div>
                 <div class="roll-card">
                   <div class="role">皇 家 建 筑 师</div>
                   <div class="name">xuhaowen</div>
+                  <div class="id">ROYAL ARCHITECT</div>
                   <div class="note">描述暂缺。</div>
                 </div>
               </div>
@@ -184,10 +199,29 @@
           <div class="roll-group" id="citizens">
             <h2 class="roll-toggle"><span class="roll-arrow">▾</span>国家成员 <span class="tag">MEMBERS</span></h2>
             <div class="roll-body">
-              <div class="roll-empty">
-                <p class="star">✦ ✦ ✦</p>
-                <p><strong>等待收录</strong></p>
+              <div class="roll-grid">
+                <div class="roll-card member">
+                  <div class="name">wanan886</div>
+                  <div class="note">描述暂缺。</div>
+                </div>
+                <div class="roll-card member">
+                  <div class="name">AAAristotle</div>
+                  <div class="note">描述暂缺。</div>
+                </div>
+                <div class="roll-card member">
+                  <div class="name">chuyuancong</div>
+                  <div class="note">描述暂缺。</div>
+                </div>
+                <div class="roll-card member">
+                  <div class="name">liu010526</div>
+                  <div class="note">描述暂缺。</div>
+                </div>
+                <div class="roll-card member">
+                  <div class="name">mushiyunai</div>
+                  <div class="note">描述暂缺。</div>
+                </div>
               </div>
+              <p class="join-line">加入王国：<strong>QQ群聊 625147665</strong></p>
             </div>
           </div>
         </section>

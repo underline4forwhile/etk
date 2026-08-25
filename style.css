@@ -53,7 +53,18 @@ a { text-decoration: none; color: inherit; }
 }
 .brand strong { font-size: 19px; font-weight: 800; color: var(--accent); letter-spacing: .16em; }
 .brand small { display: block; font-size: 10px; color: var(--gold-dim); letter-spacing: .22em; margin-top: 1px; }
-.nav .corner-mark { color: var(--gold-dim); font-size: 12px; letter-spacing: .4em; }
+.nav .join-btn {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: .22em;
+  padding: 6px 18px;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.nav .join-btn:hover { background: var(--gold); color: #241505; }
+.nav .join-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 /* ===== 布局：侧栏 + 主栏 ===== */
 .layout { display: flex; align-items: flex-start; min-height: calc(100vh - var(--nav-h)); }
