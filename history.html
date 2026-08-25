@@ -2,58 +2,87 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>地标建筑 · 永恒暮初王国</title>
+<title>王国历史 · 永恒暮初王国</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  /* 地标名录空态 */
-  .landmarks {
+  /* ===== 王国历史 · 时间轴 ===== */
+  .timeline {
     max-width: 760px; margin: 52px auto 0;
-  }
-  .landmarks-empty {
-    background: rgba(255,253,246,.5);
-    border: 1px solid var(--line);
     position: relative;
-    padding: 56px 34px 50px;
-    text-align: center;
   }
-  .landmarks-empty::before, .landmarks-empty::after {
-    content: ""; position: absolute; left: 10px; right: 10px; height: 1px;
+  /* 中轴竖线 */
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 96px; top: 4px; bottom: 4px;
+    width: 1px;
     background: var(--line);
   }
-  .landmarks-empty::before { top: 5px; }
-  .landmarks-empty::after { bottom: 5px; }
-  .landmarks-empty .star {
+  .tl-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 26px;
+    margin-bottom: 30px;
+  }
+  .tl-item:last-child { margin-bottom: 0; }
+  /* 节点菱形 */
+  .tl-item::before {
+    content: "◆";
+    position: absolute;
+    left: 96px;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-size: 10px;
+    background: var(--bg);
+    padding: 0 3px;
+    line-height: 1;
+    top: 6px;
+  }
+  .tl-date {
+    text-align: right;
     font-family: "SimSun", "宋体", serif;
-    color: var(--gold); font-size: 14px; letter-spacing: .5em; padding-left: .5em;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.5;
+    padding-top: 2px;
+    padding-right: 18px;   /* 给轴上节点让出空间 */
   }
-  .landmarks-empty h3 {
+  .tl-body {
+    background: var(--bg-2);   /* 与背景同系的羊皮纸色 */
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    padding: 16px 22px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .tl-body:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(61,28,77,.1); }
+  .tl-body h3 {
     font-family: "SimSun", "宋体", serif;
-    font-size: 24px; font-weight: 900; color: var(--accent);
-    letter-spacing: .2em; padding-left: .2em;
-    margin-top: 18px;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: .12em;
+    margin-bottom: 6px;
   }
-  .landmarks-empty p {
-    margin-top: 14px;
-    font-size: 14px; color: var(--dim); line-height: 2;
+  .tl-body p {
+    font-size: 13.5px;
+    color: var(--dim);
+    line-height: 1.9;
   }
-  .landmarks-empty .back {
-    display: inline-block; margin-top: 24px;
-    border: 1px solid var(--gold);
-    padding: 10px 30px;
-    font-size: 14px; font-weight: 700; color: var(--accent);
-    letter-spacing: .2em;
-    transition: background .18s, color .18s;
-  }
-  .landmarks-empty .back:hover { background: var(--gold); color: #241505; }
+  .tl-body p strong { color: var(--accent); }
 
   @media (max-width: 860px) {
     .page-main { padding: 40px 20px 60px; }
+    .tl-item { grid-template-columns: 72px 1fr; gap: 16px; }
+    .timeline::before { left: 72px; }
+    .tl-item::before { left: 72px; }
+    .tl-date { font-size: 13px; }
   }
 </style>
 </head>
 <body>
 
-  
   <nav class="nav">
     <a class="brand" href="index.html">
       <span class="mark"></span>
@@ -66,7 +95,6 @@
   </nav>
 
   <div class="layout">
-    
     <aside class="side-dir">
       <button class="dir-toggle" id="dirToggle" type="button" aria-label="收起目录" title="收起目录">«</button>
       <div class="dir-inner">
@@ -90,39 +118,40 @@
           <a href="diplomacy.html#allies">盟友</a>
           <a href="diplomacy.html#enemies">敌对</a>
         </div>
-        <a class="dir-item active" href="landmarks.html">地标建筑</a>
-        <a class="dir-item" href="history.html">王国历史</a>
+        <a class="dir-item" href="landmarks.html">地标建筑</a>
+        <a class="dir-item active" href="history.html">王国历史</a>
         <div class="dir-foot">生于暮初<br>立于永恒</div>
       </div>
     </aside>
 
-    
     <div class="main-col">
       <main>
-        
         <section class="page-main">
           <div class="page-head">
-            <h1>地标建筑</h1>
-            <p class="gothic">Landmarks</p>
-            <p class="desc">王国疆域中的地标与景观名录。首都暮色领、港口暮初港等地的风光将在此收录。</p>
+            <h1>王国历史</h1>
+            <p class="gothic">Kingdom History</p>
           </div>
 
-          
-          <div class="landmarks">
-            <div class="landmarks-empty">
-              <p class="star">✦ ✦ ✦</p>
-              <h3>地标名录整理中</h3>
-              <p>
-                暮色领的都城、暮初港的堤岸，<br>
-                乃至松林间的村落——都将在此留下画像与记述。
-              </p>
-              <a class="back" href="index.html">返回王国首页</a>
+          <!-- 时间轴 -->
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-date">2026.8.9</div>
+              <div class="tl-body">
+                <h3>矿工联盟成立</h3>
+                <p><strong>For_forwhile</strong>、<strong>LiseK134</strong> 与 <strong>wanan886</strong> 组成 SimMC 矿工联盟。</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-date">2026.8.20</div>
+              <div class="tl-body">
+                <h3>永恒暮初王国正式建国</h3>
+                <p><strong>For_forwhile</strong> 登基为国王，定都 <strong>暮色领</strong>。</p>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      
       <footer>
         <div class="f-frame">
           <p class="f-brand">永恒暮初</p>
